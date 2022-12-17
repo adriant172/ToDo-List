@@ -1,14 +1,13 @@
 
-
 function generateMainLayout(contentElement) {
     const header = document.createElement('header');
     header.innerHTML = "ToDo's"
-    const projects = document.createElement('div');
-    const todoItems = document.createElement('div');
-    const mainPage = [header, projects, todoItems]
+    const categories = document.createElement('div');
+    const mainView = document.createElement('div');
+    const mainPage = [header, categories, mainView]
 
-    projects.classList.add('projects');
-    todoItems.classList.add('items');
+    categories.classList.add('categories');
+    mainView.classList.add('items');
 
     mainPage.forEach(e => {
         contentElement.appendChild(e)
@@ -17,7 +16,17 @@ function generateMainLayout(contentElement) {
 
 }
 
-function DisplayToDo(category, title, description, date){
+
+// function categoryDataHandler(categoryToDoItems) {
+//     categoryToDoItems.forEach( i => {
+//         const title = i.title;
+//         const description = i.description;
+//         const date = i.date;
+//         return [title, description, date]
+//     })
+// }
+
+function displayToDo(categoryContainer, title, description, date){
     const toDoContainer = document.createElement('div');
     const titleElement = document.createElement('p');
     const descriptionElement = document.createElement('p')
@@ -32,15 +41,20 @@ function DisplayToDo(category, title, description, date){
         toDoContainer.appendChild(e)
     })
     toDoContainer.classList.add("toDo-item");
-    category.appendChild(toDoContainer);
+    categoryContainer.appendChild(toDoContainer);
 
   
 }
 
-function displayCategory() {
-
+function displayCategory(mainViewElement,arrayOfItems) {
+    let categoryContainer = document.createElement('div');
+    categoryContainer.classList.add('category-container')
+    arrayOfItems.forEach( i => {
+        displayToDo(categoryContainer, i.title, i.description, i.dueDate)
+    })
+    mainViewElement.appendChild(categoryContainer);
 }
 
 
 
-export { generateMainLayout }
+export { generateMainLayout, displayCategory }
