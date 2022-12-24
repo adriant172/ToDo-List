@@ -18,7 +18,7 @@ class category {
         this.taskItems = [];
     }
     addItem(itemObj) {
-        this.toDoItems.push(itemObj)
+        this.taskItems.push(itemObj)
     }
 
 }
