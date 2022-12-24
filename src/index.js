@@ -15,6 +15,6 @@ const testItem = new toDoItem("Walk the dog", "The Dog needs to go for a morning
 
 testCategory.addItem(testItem);
 
-displayCategory(mainView, testCategory.toDoItems)
+displayCategory(mainView,testCategory.title, testCategory.toDoItems)
 
 

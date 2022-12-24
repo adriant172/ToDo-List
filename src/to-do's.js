@@ -1,6 +1,6 @@
 
 
-class toDoItem {
+class taskItem {
     constructor(title, description, dueDate, priorityLevel){
         this.title = title;
         this.description= description;
@@ -15,7 +15,7 @@ class toDoItem {
 class category {
     constructor(title){
         this.title = title;
-        this.toDoItems = [];
+        this.taskItems = [];
     }
     addItem(itemObj) {
         this.toDoItems.push(itemObj)
@@ -23,4 +23,4 @@ class category {
 
 }
 
-export { toDoItem, category }
+export { taskItem, category }
