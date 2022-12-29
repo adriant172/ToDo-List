@@ -15,17 +15,20 @@ function generateMainLayout(contentElement) {
         contentElement.appendChild(e)
         }
     )
+    displayAddTaskButton();
+    
+    const categoryContainer = document.createElement('div');
+    const listContainer = document.createElement('ul');
+    categoryContainer.classList.add('category-container');
+    listContainer.classList.add('list-container');
+
+    categoryContainer.appendChild(listContainer)
+    mainView.appendChild(categoryContainer)
+
+    
 }
 
 
-// function categoryDataHandler(categorytaskItems) {
-//     categorytaskItems.forEach( i => {
-//         const title = i.title;
-//         const description = i.description;
-//         const date = i.date;
-//         return [title, description, date]
-//     })
-// }
 
 function displayTask(listContainer, title, description, date){
     const taskContainer = document.createElement('li');
@@ -46,17 +49,12 @@ function displayTask(listContainer, title, description, date){
 
   
 }
-function addTaskController() {
 
-}
-
-function displayCategory(mainViewElement, categoryTitleValue, arrayOfItems) {
-    const categoryContainer = document.createElement('div');
-    const listContainer = document.createElement('ul');
-    const categoryTitle = document.createElement('h3');
+function displayAddTaskButton() {
+    const mainItemsView = document.querySelector('.items');
     const addTaskButton = document.createElement('button');
 
-    categoryTitle.innerHTML = categoryTitleValue;
+    
     addTaskButton.type = "button"
     addTaskButton.classList.add('newTaskButton');
     addTaskButton.textContent = "New Task";
@@ -64,17 +62,25 @@ function displayCategory(mainViewElement, categoryTitleValue, arrayOfItems) {
     addTaskButton.addEventListener('click', () => {
         const overlay = document.querySelector('.overlay');
         overlay.style.display = "flex";
-    })
+    });
+    mainItemsView.appendChild(addTaskButton);
+
+}
+
+function displayCategory(categoryTitleValue, arrayOfItems) {
+    const listContainer = document.querySelector('.list-container')
+    while (listContainer.firstChild) {
+        listContainer.removeChild(listContainer.firstChild);
+    }
+
+    const categoryTitle = document.createElement('h3');
+    categoryTitle.innerHTML = categoryTitleValue;
 
     categoryTitle.classList.add('category-title');
-    categoryContainer.classList.add('category-container');
-    listContainer.classList.add('list-container');
     arrayOfItems.forEach( i => {
         displayTask(listContainer, i.title, i.description, i.dueDate)
     })
-    categoryContainer.appendChild(addTaskButton)
-    categoryContainer.appendChild(listContainer)
-    mainViewElement.appendChild(categoryContainer);
+    
 }
 
 

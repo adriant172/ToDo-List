@@ -43,20 +43,26 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px black solid;
     border-radius: 15px;
     height: 70vh;
     width: 80%;
+}
+.list-container {
+    width: 90%;
+    padding: 0;
+    gap: 25px;
 }
 .task-item {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    justify-items: center;
     flex-shrink: 1;
     border: 2px black solid;
     border-radius: 15px;
     max-width: 90%;
     max-height: 10vh;
+    margin: 1rem;
 }
 .add-toDo-container {
     display: flex;
@@ -76,4 +82,5 @@ header {
     min-width: 100px;
     background-color: #3777FF;
     border-radius: 10px;
+    margin: .8rem;
 }
