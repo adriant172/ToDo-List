@@ -24,6 +24,10 @@
   },
   "dependencies": {
     "date-fns": "^2.29.3",
-    "js-datepicker": "^5.18.2"
+    "forms": "^1.3.2",
+    "fs": "^0.0.1-security",
+    "js-datepicker": "^5.18.2",
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "util": "^0.12.5"
   }
 }

@@ -1,6 +1,8 @@
-import { generateMainLayout, displayCategory } from "./main-page";
+import { generateMainLayout, displayCategory, displayCategoryList } from "./main-page";
 import { taskItem, category} from "./to-do's";
 import { toDoDataHandler } from "./handlers";
+import { addTaskButtonListener , addCategoryButtonListener, cancelButtonListener} from "./buttons"
+
 
 import { format } from "date-fns";
 import './styles.css';
@@ -10,35 +12,27 @@ import './styles.css';
 const content = document.querySelector('#content');
 generateMainLayout(content);
 
-const mainView = document.querySelector('.items');
-const addTaskButton = document.querySelector('.add-task-button');
-const cancelButton = document.querySelector('.cancel-button');
-const testCategory = new category("Default")
-const overlay = document.querySelector('.overlay');
+const defaultCategory = new category("Default")
+const taskOverlay = document.querySelector('#task-overlay');
+const categoryOverlay = document.querySelector('#category-overlay');
 const addItemForm = document.querySelector('#task-form');
+const categoryForm = document.querySelector('#category-form');
+const categories = {
+    "default": defaultCategory,
+}
+let currentCategory = categories["default"]
 
 
+displayCategoryList(categoryList)
 
 
-if (testCategory.taskItems) {
-    displayCategory(testCategory.title, testCategory.taskItems);
+if (defaultCategory.taskItems) {
+    displayCategory(defaultCategory.title, defaultCategory.taskItems);
 }
 
-
-addTaskButton.addEventListener('click', () => {
-    const newTaskData = toDoDataHandler();
-    const task = new taskItem(newTaskData.title, newTaskData.description, newTaskData.date);
-    testCategory.addItem(task);
-    addItemForm.reset();
-    displayCategory(testCategory.title, testCategory.taskItems);
-    overlay.style.display = "";
-})
-
-cancelButton.addEventListener('click', () => {
-    addItemForm.reset();
-    overlay.style.display = "";
-
-})
+addTaskButtonListener(currentCategory, addItemForm, taskOverlay)
+addCategoryButtonListener(categories, categoryForm, categoryOverlay)
+cancelButtonListener()
 
 
 

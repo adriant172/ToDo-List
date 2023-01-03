@@ -9,8 +9,20 @@
 <body>
     <div id="content">
     </div>
-    <div class="overlay">
-        <div class="add-toDo-container">
+    <div id="category-overlay" class="overlay">
+        <div class="add-item-container">
+            <form id="category-form">
+                <div class="form-entry">
+                    <input type="text" required name="categoryTitle" id="categoryTitle" placeholder="Enter Category Name">
+                </div>
+                <button class="add-category-button" type="button">Add Category</button>
+                <button class="cancel-button" type="button">Cancel</button>          
+            </form>
+        </div>
+        
+    </div>
+    <div id="task-overlay" class="overlay">
+        <div class="add-item-container">
             <form id="task-form">
                 <div class="form-entry">
                     <input type="text" required name="taskTitle" id="taskTitle" placeholder="Enter Task Name">
