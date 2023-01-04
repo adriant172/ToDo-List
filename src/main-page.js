@@ -1,4 +1,3 @@
-import { category, taskItem } from "./to-do's";
 
 
 function generateMainLayout(contentElement) {
@@ -111,15 +110,19 @@ function displayCategory(categoryTitleValue, arrayOfItems) {
     
 }
 
-function displayCategoryList(listOfCategories) {
+function displayCategoryList(categories) {
     const categoryList = document.querySelector('.category-list');
-    listOfCategories.forEach( c => {
-        let categoryName = document.createElement('li')
+    while (categoryList.firstChild) {
+        categoryList.removeChild(categoryList.firstChild);
+    }
+    for (const entry in categories){
+        let categoryName = document.createElement('li');
+        let categoryButton = document.createElement('button');
         categoryName.classList.add('category-name');
-        categoryName.innerHTML = c.title;
+        categoryName.innerHTML = `${entry}`;
         categoryList.appendChild(categoryName);
-    })
 
+    }
 }
 
 

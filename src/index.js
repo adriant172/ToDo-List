@@ -1,7 +1,7 @@
 import { generateMainLayout, displayCategory, displayCategoryList } from "./main-page";
 import { taskItem, category} from "./to-do's";
 import { toDoDataHandler } from "./handlers";
-import { addTaskButtonListener , addCategoryButtonListener, cancelButtonListener} from "./buttons"
+import { addTaskButtonListener , addCategoryButtonListener, cancelButtonListener, categorySelectListeners} from "./buttons"
 
 
 import { format } from "date-fns";
@@ -13,26 +13,26 @@ const content = document.querySelector('#content');
 generateMainLayout(content);
 
 const defaultCategory = new category("Default")
-const taskOverlay = document.querySelector('#task-overlay');
-const categoryOverlay = document.querySelector('#category-overlay');
-const addItemForm = document.querySelector('#task-form');
-const categoryForm = document.querySelector('#category-form');
+
 const categories = {
-    "default": defaultCategory,
+    "Default": defaultCategory
 }
-let currentCategory = categories["default"]
+const currentCategory = categories["Default"];
 
 
-displayCategoryList(categoryList)
+displayCategoryList(categories)
 
 
-if (defaultCategory.taskItems) {
-    displayCategory(defaultCategory.title, defaultCategory.taskItems);
+if (currentCategory) {
+    displayCategory(currentCategory.title, currentCategory.taskItems);
 }
 
-addTaskButtonListener(currentCategory, addItemForm, taskOverlay)
-addCategoryButtonListener(categories, categoryForm, categoryOverlay)
-cancelButtonListener()
+
+
+addTaskButtonListener(currentCategory);
+addCategoryButtonListener(categories);
+cancelButtonListener();
+categorySelectListeners(categories, currentCategory);
 
 
 
