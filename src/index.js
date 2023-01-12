@@ -7,17 +7,31 @@ import { addTaskButtonListener , addCategoryButtonListener, cancelButtonListener
 import { format } from "date-fns";
 import './styles.css';
 
-
+let currentCategory;
+let categories;
+let currentCategoryData
+let categoriesData;
 
 const content = document.querySelector('#content');
 generateMainLayout(content);
 
-const defaultCategory = new category("Default")
 
-const categories = {
-    "Default": defaultCategory
+if ( !window.localStorage.getItem("categories")) {
+    const defaultCategory = new category("Default");
+    const categories = {
+        "Default": defaultCategory
+    }
+    currentCategory = categories["Default"];
+    window.localStorage.setItem("categories", JSON.stringify(categories));
+    window.localStorage.setItem("currentCategory", JSON.stringify({
+        "Default": {}
+    }));
+} else {
+    currentCategoryData = window.localStorage.getItem("currentCategory");
+    categoriesData = window.localStorage.getItem("categories");
+
+    currentCategory = new category(`${cu}`)
 }
-const currentCategory = categories["Default"];
 
 
 displayCategoryList(categories)
@@ -29,10 +43,10 @@ if (currentCategory) {
 
 
 
-addTaskButtonListener(currentCategory);
+addTaskButtonListener(categories);
 addCategoryButtonListener(categories);
 cancelButtonListener();
-categorySelectListeners(categories, currentCategory);
+currentCategory = categorySelectListeners(categories);
 
 
 

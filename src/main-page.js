@@ -35,7 +35,6 @@ function generateMainLayout(contentElement) {
 
     categories.appendChild(categoryListContainer);
 
-    
 }
 
 
@@ -117,7 +116,6 @@ function displayCategoryList(categories) {
     }
     for (const entry in categories){
         let categoryName = document.createElement('li');
-        let categoryButton = document.createElement('button');
         categoryName.classList.add('category-name');
         categoryName.innerHTML = `${entry}`;
         categoryList.appendChild(categoryName);
