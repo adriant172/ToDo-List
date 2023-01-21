@@ -1,6 +1,6 @@
 import { generateMainLayout, displayCategory, displayCategoryList } from "./main-page";
 import { taskItem, category} from "./to-do's";
-import { toDoDataHandler } from "./handlers";
+import { getAllCategories, toDoDataHandler } from "./handlers";
 import { addTaskButtonListener , addCategoryButtonListener, cancelButtonListener, categorySelectListeners} from "./buttons"
 
 
@@ -9,28 +9,27 @@ import './styles.css';
 
 let currentCategory;
 let categories;
-let currentCategoryData
+let currentCategoryData;
 let categoriesData;
 
 const content = document.querySelector('#content');
 generateMainLayout(content);
 
 
-if ( !window.localStorage.getItem("categories")) {
-    const defaultCategory = new category("Default");
-    const categories = {
-        "Default": defaultCategory
+if ( window.localStorage.getItem("categories") == null) {
+    const defaultItem = {title: "Default", taskItems: []};
+     categories = {
+        "Default": defaultItem,
     }
-    currentCategory = categories["Default"];
+    currentCategory = new category(defaultItem.title);
     window.localStorage.setItem("categories", JSON.stringify(categories));
-    window.localStorage.setItem("currentCategory", JSON.stringify({
-        "Default": {}
-    }));
+    window.localStorage.setItem("currentCategory", JSON.stringify(defaultItem));
 } else {
-    currentCategoryData = window.localStorage.getItem("currentCategory");
-    categoriesData = window.localStorage.getItem("categories");
+    currentCategoryData = JSON.parse(window.localStorage.getItem("currentCategory"));
+    categoriesData = JSON.parse(window.localStorage.getItem("categories"));
 
-    currentCategory = new category(`${cu}`)
+    currentCategory = new category(currentCategoryData.title);
+    categories = getAllCategories();
 }
 
 
