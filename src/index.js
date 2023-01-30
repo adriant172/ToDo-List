@@ -45,7 +45,7 @@ if (currentCategory) {
 addTaskButtonListener(categories);
 addCategoryButtonListener(categories);
 cancelButtonListener();
-currentCategory = categorySelectListeners(categories);
+categorySelectListeners(categories);
 
 
 
