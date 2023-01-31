@@ -42,7 +42,7 @@ if (currentCategory) {
 
 
 
-addTaskButtonListener(categories);
+addTaskButtonListener(currentCategory);
 addCategoryButtonListener(categories);
 cancelButtonListener();
 categorySelectListeners(categories);
