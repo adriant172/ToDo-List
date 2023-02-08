@@ -20,6 +20,12 @@ class category {
     addItem(itemObj) {
         this.taskItems.push(itemObj)
     }
+    set allTasks(taskList) {
+        if (Array.isArray(taskList) == true) {
+            this.taskItems = taskList;
+        }
+
+    }
 
 }
 

@@ -29,6 +29,7 @@ if ( window.localStorage.getItem("categories") == null) {
     categoriesData = JSON.parse(window.localStorage.getItem("categories"));
 
     currentCategory = new category(currentCategoryData.title);
+    currentCategory.taskItems = currentCategoryData.taskItems;
     categories = getAllCategories();
 }
 
