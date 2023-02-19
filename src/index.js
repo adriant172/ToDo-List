@@ -37,14 +37,13 @@ if ( window.localStorage.getItem("categories") == null) {
 displayCategoryList(categories)
 
 
-if (currentCategory) {
-    displayCategory(currentCategory.title, currentCategory.taskItems);
-}
+displayCategory(currentCategory.title, currentCategory.taskItems);
+
 
 
 
 addTaskButtonListener(currentCategory);
-addCategoryButtonListener(categories);
+addCategoryButtonListener();
 cancelButtonListener();
 categorySelectListeners(categories);
 
