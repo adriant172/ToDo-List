@@ -66,7 +66,7 @@ function displayAddTaskButton() {
     addTaskButton.textContent = "New Task";
 
     addTaskButton.addEventListener('click', () => {
-        const overlay = document.querySelector('#task-overlay');
+        const overlay = document.querySelector('#add-task-overlay');
         overlay.style.display = "flex";
     });
     mainItemsView.appendChild(addTaskButton);

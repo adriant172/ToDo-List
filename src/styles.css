@@ -54,21 +54,25 @@ header {
     margin: 0;
 }
 .list-container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
     width: 90%;
     padding: 0;
-    gap: 25px;
+    gap: 2px;
 }
 .task-item {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    justify-items: center;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    gap:10px;
     flex-shrink: 1;
     border: 2px black solid;
     border-radius: 15px;
-    max-width: 90%;
-    max-height: 10vh;
-    margin: 1rem;
+    min-width: 75%;
+    max-height: 15vh;
+    margin: .2rem;
+    padding: 1rem;
 }
 .add-item-container{
     display: flex;
