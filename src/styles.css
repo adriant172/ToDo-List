@@ -94,7 +94,7 @@ header {
     border-radius: 10px;
     margin: .8rem;
 }
-#taskDescription {
+.taskDescription {
     resize: none;
     height: 80%;
     width: 90%;
@@ -105,8 +105,15 @@ header {
     gap: 25px;
     list-style-type: none;
 }
-.view-task{
+.view-task-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(10, 1fr);
+    background-color: whitesmoke;
+    margin: auto;
+    padding: 1.5em;
+    width: 30vw;
+    height: 30vh;
+    font-size: 1.5rem;
+    border: 2px black solid;
 }

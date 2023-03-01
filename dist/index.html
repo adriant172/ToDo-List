@@ -23,9 +23,9 @@
     </div>
     <div id="add-task-overlay" class="overlay">
         <div class="item-container">
-            <form id="task-form" action="" method="post">
-                <input class="form-entry" type="text" required name="taskTitle" id="taskTitle" placeholder="Enter Task Name">
-                <textarea class="form-entry" type="text"  required name="taskDescription" id="taskDescription" placeholder="Description"></textarea>
+            <form id="new-task-form" action="" method="post">
+                <input class="form-entry" type="text" required name="TaskTitle" id="newtaskTitle" class="taskTitle" placeholder="Enter Task Name">
+                <textarea class="form-entry" type="text"  required name="taskDescription" id="newtaskDescription" class="taskTitle" placeholder="Description"></textarea>
                     <!-- <input type="text"  required name="taskDescription" id="taskDescription" placeholder="Description"> -->
                 <div class="form-entry">
                     <input type="date" name="taskDueDate" id="taskDueDate">
@@ -36,7 +36,32 @@
         </div>
     </div>
     <div id="view-task-overlay" class="overlay">
-        <div class="item-container">
+        <div class="view-task-container">
+            <form id="edit-task-form">
+                
+
+                <input class="form-entry" type="text" required name="taskTitle" class="taskTitle">
+                <textarea class="form-entry" type="text"  required name="taskDescription" class="taskDescription"></textarea>
+                <textarea class="form-entry" type="text"  required name="taskNotes" class="taskNotes"></textarea>
+                
+                <label  for="taskStatus">Status</label>
+                <select name="taskStatus" id="taskStatus">
+                    <option value="To Do">To Do</option>
+                    <option value="Doing">Doing</option>
+                    <option value="Done">Done</option>
+                </select>
+                <label for="priority"></label>
+                <select name="priority" id="priority">
+                    <option value="P1">P1</option>
+                    <option value="P2">P2</option>
+                    <option value="P3">P3</option>
+                    <option value="P4">P4</option>
+                </select>
+                <input type="date" name="taskDueDate" id="taskDueDate">
+
+
+                <button class="cancel-button" type="button">Cancel</button>
+            </form>
 
         </div>
                 
