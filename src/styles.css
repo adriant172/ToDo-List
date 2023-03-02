@@ -139,6 +139,7 @@ header {
     grid-column: 4 / 5;
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 .form-entry {
     max-width: 70%;
@@ -154,8 +155,9 @@ textarea {
     resize: none;
 }
 .taskTitle {
-    max-height: 15%;
+    min-height: 10%;
 }
 .taskDescription, .taskNotes {
-    min-height: 30vh;
+    min-height: 100px;
+    max-height: 35%;
 }
