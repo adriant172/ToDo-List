@@ -112,8 +112,8 @@ header {
     background-color: whitesmoke;
     margin: auto;
     padding: 1.5em;
-    width: 30vw;
-    height: 30vh;
+    width: 60vw;
+    height: 70vh;
     font-size: 1.5rem;
     border: 2px black solid;
 }
@@ -142,4 +142,20 @@ header {
 }
 .form-entry {
     max-width: 70%;
+    border: none;
+    border-radius: 10px;
+}
+label {
+    font-size: 16px;
+    font-weight: bold;
+    font-style: italic;
+}
+textarea {
+    resize: none;
+}
+.taskTitle {
+    max-height: 15%;
+}
+.taskDescription, .taskNotes {
+    min-height: 30vh;
 }

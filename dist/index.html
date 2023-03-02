@@ -42,9 +42,14 @@
                     <button class="cancel-button" type="button">Cancel</button>
                 </div>
                 <div id="edit-task-main-content">
-                    <input class="form-entry" type="text" required name="taskTitle" class="taskTitle">
-                <textarea class="form-entry" type="text"  required name="taskDescription" class="taskDescription"></textarea>
-                <textarea class="form-entry" type="text"  required name="taskNotes" class="taskNotes"></textarea>
+                    <label for="taskTitle"></label>
+                    <input class="form-entry taskTitle" type="text" required name="taskTitle">
+
+                    <label for="taskDescription">Description</label>
+                    <textarea class="form-entry taskDescription" type="text"  required name="taskDescription"></textarea>
+
+                    <label for="taskNotes">Comments</label>
+                    <textarea class="form-entry taskNotes" type="text"  required name="taskNotes"></textarea>
 
                 </div>
                 
