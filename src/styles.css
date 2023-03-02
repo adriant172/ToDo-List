@@ -107,7 +107,7 @@ header {
 }
 .view-task-container{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(10, 1fr);
     background-color: whitesmoke;
     margin: auto;
@@ -116,4 +116,30 @@ header {
     height: 30vh;
     font-size: 1.5rem;
     border: 2px black solid;
+}
+#edit-task-header {
+    grid-row: 1 / 2;
+    grid-column: 1 / 5;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    border-bottom: solid 2px grey;
+
+}
+#edit-task-main-content {
+    grid-row: 2 / 11;
+    grid-column: 1 / 4;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+#edit-task-sidebar {
+    grid-row: 2 / 11;
+    grid-column: 4 / 5;
+    display: flex;
+    flex-direction: column;
+}
+.form-entry {
+    max-width: 70%;
 }
