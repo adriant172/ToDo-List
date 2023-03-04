@@ -43,13 +43,13 @@
                 </div>
                 <div id="edit-task-main-content">
                     <label for="taskTitle"></label>
-                    <input class="form-entry taskTitle" type="text" required name="taskTitle">
+                    <input class="form-entry taskTitle" id="edit-taskTitle" type="text" required name="taskTitle">
 
                     <label for="taskDescription">Description</label>
-                    <textarea class="form-entry taskDescription" type="text"  required name="taskDescription"></textarea>
+                    <textarea class="form-entry taskDescription" id="edit-taskDescription" type="text"  required name="taskDescription"></textarea>
 
                     <label for="taskNotes">Comments</label>
-                    <textarea class="form-entry taskNotes" type="text"  required name="taskNotes"></textarea>
+                    <textarea class="form-entry taskNotes" id="edit-taskNotes" type="text"  required name="taskNotes"></textarea>
 
                 </div>
                 
@@ -61,7 +61,7 @@
                         <option value="Done">Done</option>
                     </select>
                     <label for="priority"></label>
-                    <select name="priority" id="priority">
+                    <select name="taskPriority" id="taskPriority">
                         <option value="P1">P1</option>
                         <option value="P2">P2</option>
                         <option value="P3">P3</option>
