@@ -22,21 +22,24 @@
         
     </div>
     <div id="add-task-overlay" class="overlay">
-        <div class="item-container">
-            <form id="new-task-form" action="" method="post">
-                <input class="form-entry" type="text" required name="TaskTitle" id="newtaskTitle" class="taskTitle" placeholder="Enter Task Name">
-                <textarea class="form-entry" type="text"  required name="taskDescription" id="newtaskDescription" class="taskTitle" placeholder="Description"></textarea>
+        <form id="new-task-form">
+            <div class="item-container">
+                <input class="form-entry" type="text" required name="TaskTitle" id="newTaskTitle" class="taskTitle" placeholder="Enter Task Name">
+                <textarea class="form-entry" type="text"  required name="taskDescription" id="newTaskDescription" class="taskTitle" placeholder="Description"></textarea>
                     <!-- <input type="text"  required name="taskDescription" id="taskDescription" placeholder="Description"> -->
                 <div class="form-entry">
                     <input type="date" name="taskDueDate" id="taskDueDate">
                 </div>
                 <input class="add-task-button" type="submit" value="Add task"> 
                 <button class="cancel-button" type="button">Cancel</button>
-            </form>
         </div>
+
+        </form>
+        
     </div>
     <div id="view-task-overlay" class="overlay">
-        <div class="view-task-container">
+        <form id="edit-task-form">
+            <div class="view-task-container">
                 <div id="edit-task-header">
                     <h3 class="category-title">PlaceHolder</h3>
                     <button class="cancel-button" type="button">Cancel</button>
@@ -69,8 +72,12 @@
                     </select>
                     <input type="date" name="taskDueDate" id="taskDueDate">
                 </div>
+                <button class="edit-task-button" type="button">Save Changes</button>
                 
         </div>
+
+        </form>
+        
                 
     </div>
     

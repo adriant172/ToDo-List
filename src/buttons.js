@@ -31,7 +31,15 @@ function addTaskButtonListener(selectedCategory) {
     })
 }
 
-function updateTaskButtonListener() {
+function updateTaskButtonListener(selectedCategory) {
+    const editTaskButton = document.querySelector('.edit-task-button');
+    const editTaskForm = document.querySelector('#edit-task-form');
+    const editTaskOverlay = document.querySelector('#view-task-overlay');
+    const newCurrentCategory = selectedCategory
+
+    editTaskButton.addEventListener('click', () => {
+        
+    })
     
 }
 

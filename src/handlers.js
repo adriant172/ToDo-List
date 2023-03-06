@@ -2,8 +2,8 @@ import { category } from "./to-do's";
 
 
 function taskDataHandler() {
-    const taskTitle = document.querySelector('#taskTitle');
-    const taskDescription = document.querySelector('#taskDescription');
+    const taskTitle = document.querySelector('#newTaskTitle');
+    const taskDescription = document.querySelector('#newTaskDescription');
     const taskDate = document.querySelector('#taskDueDate');
 
     return {"title": taskTitle.value, "description": taskDescription.value, "date": taskDate.value}
@@ -69,7 +69,7 @@ function updateTaskData(){
 }
 
 function getTaskData(){
-
+    
 }
 
 
