@@ -68,10 +68,17 @@ function updateTaskData(){
     return { title: taskTitle, description: taskDescription, notes: taskNotes, status: taskStatus, priority: taskPriority, dueDate: taskDueDate }
 }
 
-function getTaskData(){
+function getTaskData(categoryName, taskName){
+    const allCategories = getAllCategories();
     
+    const tasks = allCategories[categoryName].taskItems;
+    for (const task of tasks) {
+        if (task.title == taskName) {
+            return task
+        }
+    }
 }
 
 
 
-export { getCurrentCategory, taskDataHandler, categoryDataHandler, getAllCategories, setCategory, setTaskToCategory, newCategoryDataHandler, setCurrentCategory , updateTaskData }
+export { getCurrentCategory, taskDataHandler, categoryDataHandler, getAllCategories, setCategory, setTaskToCategory, newCategoryDataHandler, setCurrentCategory , updateTaskData, getTaskData }

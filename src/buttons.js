@@ -1,4 +1,4 @@
-import { categoryDataHandler, setTaskToCategory, taskDataHandler, newCategoryDataHandler, setCategory, setCurrentCategory, getCurrentCategory } from "./handlers";
+import { categoryDataHandler, setTaskToCategory, taskDataHandler, newCategoryDataHandler, setCategory, setCurrentCategory, getCurrentCategory, getTaskData } from "./handlers";
 import { taskItem, category } from "./to-do's";
 import { displayCategory, displayCategoryList } from "./main-page";
 
@@ -38,7 +38,6 @@ function updateTaskButtonListener(selectedCategory) {
     const newCurrentCategory = selectedCategory
 
     editTaskButton.addEventListener('click', () => {
-        
     })
     
 }
@@ -92,10 +91,25 @@ function categorySelectListeners(categories){
 
 function taskItemsListeners(){
     const taskList = document.querySelectorAll('.task-item');
+
+    let currentCategory = document.querySelector('.category-title');
     taskList.forEach((item) => {
         item.addEventListener('click', () => {
             const overlay = document.querySelector('#view-task-overlay');
+            const categoryTitle = document.querySelector('#category-title');
+            const title = document.querySelector('#edit-taskTitle');
+            const description = document.querySelector('#edit-taskDescription');
+            const notes = document.querySelector('#edit-taskNotes');
             overlay.style.display = "flex";
+
+
+            const taskName = item.firstChild.innerHTML;
+            const taskData = getTaskData(currentCategory.innerHTML, taskName);
+            categoryTitle.innerHTML = currentCategory.innerHTML;
+            title.value = taskData.title;
+            description.value = taskData.description;
+            notes.value = taskData.notes;
+
         })
     })
 }
