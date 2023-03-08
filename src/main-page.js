@@ -101,7 +101,7 @@ function displayCategory(categoryTitleValue, arrayOfItems) {
 
     
     arrayOfItems.forEach( i => {
-        displayTask(listContainer, i.title, i.date)
+        displayTask(listContainer, i.title, i.dueDate)
     })
     
 }

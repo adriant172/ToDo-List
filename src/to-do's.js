@@ -7,7 +7,7 @@ class taskItem {
         this.dueDate = dueDate;
         this.priorityLevel = priorityLevel;
         this.status = "To Do";
-        this.notes;
+        this.notes = "";
         this.checklist = [];
     }
 }

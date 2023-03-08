@@ -13,15 +13,15 @@ function addTaskButtonListener(selectedCategory) {
     
     addTaskButton.addEventListener('click', () => {
         const newTaskData = taskDataHandler();
+        const task = new taskItem(newTaskData.title, newTaskData.description, newTaskData.date);
         // if(newTaskData.title == "") {
         //     alert("Please enter Task Title")
         //     return
         // }
         
-        setTaskToCategory(newCurrentCategory.title, newTaskData)
+        setTaskToCategory(newCurrentCategory.title, task)
         setCurrentCategory(newCurrentCategory.title);
         // const currentCategory = getCurrentCategory();
-        const task = new taskItem(newTaskData.title, newTaskData.description, newTaskData.date);
         // currentCategory.title
         // currentCategory.addItem(task);
         addItemForm.reset();
@@ -100,15 +100,29 @@ function taskItemsListeners(){
             const title = document.querySelector('#edit-taskTitle');
             const description = document.querySelector('#edit-taskDescription');
             const notes = document.querySelector('#edit-taskNotes');
+            const status = document.querySelector('#taskStatus')
+            const priority = document.querySelector('#taskPriority');
+            const dueDate = document.querySelector('#dueDate');
+
             overlay.style.display = "flex";
 
 
             const taskName = item.firstChild.innerHTML;
             const taskData = getTaskData(currentCategory.innerHTML, taskName);
+
+
             categoryTitle.innerHTML = currentCategory.innerHTML;
             title.value = taskData.title;
             description.value = taskData.description;
-            notes.value = taskData.notes;
+            notes.value= taskData.notes;
+            status.value = taskData.status;
+            if (taskData.priority == undefined) {
+                priority.value = "P4"
+            }
+            const thisDate = taskData.dueDate;
+            console.log(String(thisDate));
+            dueDate.value = String(thisDate);
+
 
         })
     })

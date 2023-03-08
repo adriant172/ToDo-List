@@ -46,7 +46,7 @@ addTaskButtonListener(currentCategory);
 addCategoryButtonListener();
 cancelButtonListener();
 categorySelectListeners(categories);
-taskItemsListeners()
+taskItemsListeners();
 
 
 
