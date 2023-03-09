@@ -1,4 +1,4 @@
-import { categoryDataHandler, setTaskToCategory, taskDataHandler, newCategoryDataHandler, setCategory, setCurrentCategory, getCurrentCategory, getTaskData } from "./handlers";
+import { categoryDataHandler, setTaskToCategory, taskDataHandler, newCategoryDataHandler, setCategory, setCurrentCategory, getCurrentCategory, getTaskData, updateTaskData, editTask } from "./handlers";
 import { taskItem, category } from "./to-do's";
 import { displayCategory, displayCategoryList } from "./main-page";
 
@@ -35,9 +35,15 @@ function updateTaskButtonListener(selectedCategory) {
     const editTaskButton = document.querySelector('.edit-task-button');
     const editTaskForm = document.querySelector('#edit-task-form');
     const editTaskOverlay = document.querySelector('#view-task-overlay');
-    const newCurrentCategory = selectedCategory
 
     editTaskButton.addEventListener('click', () => {
+        const taskData = updateTaskData();
+        editTask(selectedCategory.title, taskData);
+        setCurrentCategory(selectedCategory.title);
+
+        editTaskForm.reset();
+        location.reload()
+        editTaskOverlay.style.display = "";
     })
     
 }
@@ -101,7 +107,7 @@ function taskItemsListeners(){
             const description = document.querySelector('#edit-taskDescription');
             const notes = document.querySelector('#edit-taskNotes');
             const status = document.querySelector('#taskStatus')
-            const priority = document.querySelector('#taskPriority');
+            const priority = document.querySelector('#priority');
             const dueDate = document.querySelector('#dueDate');
 
             overlay.style.display = "flex";
@@ -118,6 +124,8 @@ function taskItemsListeners(){
             status.value = taskData.status;
             if (taskData.priority == undefined) {
                 priority.value = "P4"
+            } else {
+                priority.value = taskData.priority;
             }
             const thisDate = taskData.dueDate;
             console.log(String(thisDate));
@@ -130,4 +138,4 @@ function taskItemsListeners(){
 
 
 
-export { addTaskButtonListener , addCategoryButtonListener, cancelButtonListener, categorySelectListeners, taskItemsListeners}
+export { addTaskButtonListener , addCategoryButtonListener, cancelButtonListener, categorySelectListeners, taskItemsListeners, updateTaskButtonListener}

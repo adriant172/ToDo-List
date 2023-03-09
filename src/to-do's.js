@@ -1,11 +1,11 @@
 
 
 class taskItem {
-    constructor(title, description, dueDate, priorityLevel){
+    constructor(title, description, dueDate, priority){
         this.title = title;
         this.description= description;
         this.dueDate = dueDate;
-        this.priorityLevel = priorityLevel;
+        this.priority = priority;
         this.status = "To Do";
         this.notes = "";
         this.checklist = [];

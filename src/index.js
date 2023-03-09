@@ -1,7 +1,7 @@
 import { generateMainLayout, displayCategory, displayCategoryList } from "./main-page";
 import { taskItem, category} from "./to-do's";
 import { getAllCategories, toDoDataHandler } from "./handlers";
-import { addTaskButtonListener , addCategoryButtonListener, cancelButtonListener, categorySelectListeners, taskItemsListeners} from "./buttons"
+import { addTaskButtonListener , addCategoryButtonListener, cancelButtonListener, categorySelectListeners, taskItemsListeners, updateTaskButtonListener} from "./buttons"
 
 
 import { format } from "date-fns";
@@ -47,6 +47,7 @@ addCategoryButtonListener();
 cancelButtonListener();
 categorySelectListeners(categories);
 taskItemsListeners();
+updateTaskButtonListener(currentCategory)
 
 
 

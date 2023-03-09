@@ -46,6 +46,18 @@ function setTaskToCategory(categoryName, taskObject){
     window.localStorage.categories = JSON.stringify(allCategories);
 }
 
+function editTask(categoryName, taskObject) {
+    const allCategories = getAllCategories();
+    const allTasks = allCategories[categoryName]['taskItems'];
+    allTasks.forEach( (task, index) => {
+        if (task.title == taskObject.title){
+            allTasks[index] = taskObject;
+        }
+    });
+    allCategories[categoryName]['taskItems'] = allTasks;
+    window.localStorage.categories = JSON.stringify(allCategories);
+}
+
 function setCurrentCategory(categoryName){
     const allCategories = getAllCategories();
     const selectedCategory = allCategories[categoryName];
@@ -62,9 +74,10 @@ function updateTaskData(){
     const taskDescription = document.querySelector('#edit-taskDescription').value;
     const taskNotes = document.querySelector('#edit-taskNotes').value;
     const taskStatus = document.querySelector('#taskStatus').value;
-    const taskPriority = document.querySelector('#taskPriority').value;
-    const taskDueDate = document.querySelector('#taskDueDate').value;
+    const taskPriority = document.querySelector('#priority').value;
+    const taskDueDate = document.querySelector('#dueDate').value;
 
+    console.log({ title: taskTitle, description: taskDescription, notes: taskNotes, status: taskStatus, priority: taskPriority, dueDate: taskDueDate });
     return { title: taskTitle, description: taskDescription, notes: taskNotes, status: taskStatus, priority: taskPriority, dueDate: taskDueDate }
 }
 
@@ -81,4 +94,4 @@ function getTaskData(categoryName, taskName){
 
 
 
-export { getCurrentCategory, taskDataHandler, categoryDataHandler, getAllCategories, setCategory, setTaskToCategory, newCategoryDataHandler, setCurrentCategory , updateTaskData, getTaskData }
+export { getCurrentCategory, taskDataHandler, categoryDataHandler, getAllCategories, setCategory, setTaskToCategory, newCategoryDataHandler, setCurrentCategory , updateTaskData, getTaskData, editTask }
