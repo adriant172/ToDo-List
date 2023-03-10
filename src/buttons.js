@@ -1,4 +1,4 @@
-import { categoryDataHandler, setTaskToCategory, taskDataHandler, newCategoryDataHandler, setCategory, setCurrentCategory, getCurrentCategory, getTaskData, updateTaskData, editTask } from "./handlers";
+import { categoryDataHandler, setTaskToCategory, taskDataHandler, newCategoryDataHandler, setCategory, setCurrentCategory, getCurrentCategory, getTaskData, updateTaskData, editTask, deleteTask } from "./handlers";
 import { taskItem, category } from "./to-do's";
 import { displayCategory, displayCategoryList } from "./main-page";
 
@@ -46,6 +46,23 @@ function updateTaskButtonListener(selectedCategory) {
         editTaskOverlay.style.display = "";
     })
     
+}
+
+function deleteTaskButtonListener(selectedCategory) {
+    const deleteTaskButton = document.querySelector('.delete-task-button')
+    const editTaskForm = document.querySelector('#edit-task-form');
+    const editTaskOverlay = document.querySelector('#view-task-overlay');
+
+    deleteTaskButton.addEventListener('click', () => {
+        const taskData = updateTaskData();
+        deleteTask(selectedCategory.title,taskData);
+        setCurrentCategory(selectedCategory.title);
+
+        editTaskForm.reset();
+        location.reload()
+        editTaskOverlay.style.display = "";
+
+    })
 }
 
 function addCategoryButtonListener() {
@@ -131,11 +148,12 @@ function taskItemsListeners(){
             console.log(String(thisDate));
             dueDate.value = String(thisDate);
 
-
         })
     })
 }
 
 
 
-export { addTaskButtonListener , addCategoryButtonListener, cancelButtonListener, categorySelectListeners, taskItemsListeners, updateTaskButtonListener}
+
+
+export { addTaskButtonListener , addCategoryButtonListener, cancelButtonListener, categorySelectListeners, taskItemsListeners, updateTaskButtonListener, deleteTaskButtonListener}

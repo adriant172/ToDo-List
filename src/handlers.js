@@ -58,6 +58,19 @@ function editTask(categoryName, taskObject) {
     window.localStorage.categories = JSON.stringify(allCategories);
 }
 
+function deleteTask(categoryName, taskObject){
+    const allCategories = getAllCategories();
+    const allTasks = allCategories[categoryName]['taskItems'];
+    allTasks.forEach( (task, index) => {
+        if (task.title == taskObject.title){
+            delete allTasks[index];
+        }
+    });
+    allCategories[categoryName]['taskItems'] = allTasks;
+    window.localStorage.categories = JSON.stringify(allCategories);
+
+}
+
 function setCurrentCategory(categoryName){
     const allCategories = getAllCategories();
     const selectedCategory = allCategories[categoryName];
@@ -94,4 +107,4 @@ function getTaskData(categoryName, taskName){
 
 
 
-export { getCurrentCategory, taskDataHandler, categoryDataHandler, getAllCategories, setCategory, setTaskToCategory, newCategoryDataHandler, setCurrentCategory , updateTaskData, getTaskData, editTask }
+export { getCurrentCategory, taskDataHandler, categoryDataHandler, getAllCategories, setCategory, setTaskToCategory, newCategoryDataHandler, setCurrentCategory , updateTaskData, getTaskData, editTask, deleteTask }
