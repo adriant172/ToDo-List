@@ -63,7 +63,7 @@ function deleteTask(categoryName, taskObject){
     const allTasks = allCategories[categoryName]['taskItems'];
     allTasks.forEach( (task, index) => {
         if (task.title == taskObject.title){
-            delete allTasks[index];
+            allTasks.splice(index, 1);
         }
     });
     allCategories[categoryName]['taskItems'] = allTasks;
