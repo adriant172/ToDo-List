@@ -2,7 +2,7 @@
 
 function generateMainLayout(contentElement) {
     const header = document.createElement('header');
-    header.innerHTML = "task's"
+    header.innerHTML = "To Do's"
     const categories = document.createElement('div');
     const mainView = document.createElement('div');
     const mainPage = [header, categories, mainView]

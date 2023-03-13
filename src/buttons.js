@@ -8,25 +8,17 @@ function addTaskButtonListener(selectedCategory) {
     const addTaskButton = document.querySelector('.add-task-button');
     const addItemForm = document.querySelector('#task-form');
     const taskOverlay = document.querySelector('#task-overlay');
-    const selectedCategoryTitle = categoryDataHandler();
     const newCurrentCategory = selectedCategory;
     
     addTaskButton.addEventListener('click', () => {
         const newTaskData = taskDataHandler();
         const task = new taskItem(newTaskData.title, newTaskData.description, newTaskData.date);
-        // if(newTaskData.title == "") {
-        //     alert("Please enter Task Title")
-        //     return
-        // }
         
         setTaskToCategory(newCurrentCategory.title, task)
         setCurrentCategory(newCurrentCategory.title);
-        // const currentCategory = getCurrentCategory();
-        // currentCategory.title
-        // currentCategory.addItem(task);
+
         addItemForm.reset();
         location.reload();
-        // displayCategory(currentCategory.title, currentCategory.taskItems);
         taskOverlay.style.display = "";
     })
 }
@@ -107,7 +99,7 @@ function categorySelectListeners(categories){
             const currentCategory = categories[`${item.innerHTML}`];
             setCurrentCategory(currentCategory.title);
             location.reload();
-            // displayCategory(currentCategory.title, currentCategory.taskItems);
+            
         })
     })
 }
