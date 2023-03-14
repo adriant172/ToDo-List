@@ -61,18 +61,23 @@ function addCategoryButtonListener() {
     const addCategoryButton = document.querySelector('.add-category-button')
     const categoryForm = document.querySelector('#category-form');
     const categoryOverlay = document.querySelector('#category-overlay');
-
-    addCategoryButton.addEventListener('click', () => {
-        const newCategory = newCategoryDataHandler();
-        // const categoryObj = new category(newCategory.title);
+    const newCategory = newCategoryDataHandler();
         setCategory(newCategory.title);
-        // categoriesObject[newCategory.title] = categoryObj;
         categoryForm.reset();
         location.reload();
-        // displayCategoryList(categoriesObject);
-        // categorySelectListeners(categoriesObject, categoriesObject[newCategory.title]);
         categoryOverlay.style.display = "";
-    })
+        
+    // addCategoryButton.addEventListener('click', () => {
+    //     const newCategory = newCategoryDataHandler();
+    //     // const categoryObj = new category(newCategory.title);
+    //     setCategory(newCategory.title);
+    //     // categoriesObject[newCategory.title] = categoryObj;
+    //     categoryForm.reset();
+    //     location.reload();
+    //     // displayCategoryList(categoriesObject);
+    //     // categorySelectListeners(categoriesObject, categoriesObject[newCategory.title]);
+    //     categoryOverlay.style.display = "";
+    // })
 }
 
 function cancelButtonListener(){

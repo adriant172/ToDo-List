@@ -13,6 +13,7 @@ let currentCategoryData;
 let categoriesData;
 
 const content = document.querySelector('#content');
+const addCategoryForm = document.querySelector('#category-form');
 generateMainLayout(content);
 
 
@@ -39,11 +40,13 @@ displayCategoryList(categories)
 
 displayCategory(currentCategory.title, currentCategory.taskItems);
 
-
+addCategoryForm.onsubmit = () => {
+    addCategoryButtonListener();
+}
 
 
 addTaskButtonListener(currentCategory);
-addCategoryButtonListener();
+
 cancelButtonListener();
 categorySelectListeners(categories);
 taskItemsListeners();
