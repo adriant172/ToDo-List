@@ -2,7 +2,11 @@
     font-family: 'Oswald';
     src: url('./fonts/Oswald-VariableFont_wght.ttf') format(truetype);
 }
-
+@keyframes selecting {
+    to {
+        transform: scale(1.2, 1.2);
+    }
+}
 body {
     margin: 0;
     font-family: 'Oswald';
@@ -47,6 +51,11 @@ header {
     align-items: center;
     
 }
+.category-name {
+    padding: 2px;
+    padding-left: 10px;
+    width: 80%;
+}
 .items {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
@@ -80,11 +89,20 @@ header {
     align-items: flex-start;
     gap:10px;
     flex-shrink: 1;
-    border: 2px black solid;
     min-width: 75%;
     max-height: 15vh;
-    margin: .2rem;
+    border:2px grey solid;
+    border-radius: 3px;
+    border-top: 1px grey solid;
+    border-bottom: 1px grey solid;
+    margin-bottom: 0;
     padding: 1rem;
+}
+.list-container > li:first-child {
+    border-top: 2px grey solid;
+}
+.list-container > li:nth-last-child(2) {
+    border-bottom: 2px grey solid;
 }
 .item-container{
     display: flex;
@@ -102,9 +120,11 @@ header {
 .newTaskButton {
     width: 25%;
     min-width: 100px;
-    background-color: #3777FF;
-    border-radius: 10px;
-    margin: .8rem;
+    margin: 10px;
+}
+.newTaskButton:hover{
+    animation: selecting .5s infinite alternate;
+    /* transform: scale(1.5); */
 }
 .newCategoryButton {
     margin: .8rem;
@@ -143,7 +163,7 @@ button {
     width: 30px;
     height: 30px;
 }
-.cancel-button, .edit-task-button, .delete-task-button {
+.cancel-button, .edit-task-button, .delete-task-button, .newTaskButton {
     border: none;
     background:inherit;
     
@@ -199,6 +219,4 @@ textarea {
 .category-name:hover {
     border-radius:15px;
     background-color: whitesmoke;
-
-
 }

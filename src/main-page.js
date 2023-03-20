@@ -14,7 +14,7 @@ function generateMainLayout(contentElement) {
         contentElement.appendChild(e)
         }
     )
-    displayAddTaskButton();
+    
     displayAddCategoryButton();
     
     // Displaying currently selected category items/ main view
@@ -57,18 +57,22 @@ function displayTask(listContainer, title, date){
 }
 
 function displayAddTaskButton() {
-    const mainItemsView = document.querySelector('.items');
+    const mainItemsView = document.querySelector('.list-container');
     const addTaskButton = document.createElement('button');
+    const plusImg = document.createElement('img');
 
     
     addTaskButton.type = "button"
     addTaskButton.classList.add('newTaskButton');
-    addTaskButton.textContent = "New Task";
 
     addTaskButton.addEventListener('click', () => {
         const overlay = document.querySelector('#add-task-overlay');
         overlay.style.display = "flex";
     });
+    plusImg.src = "/src/images/note-plus.svg";
+    plusImg.alt = "Add task icon"
+    plusImg.classList.add('icons');
+    addTaskButton.appendChild(plusImg);
     mainItemsView.appendChild(addTaskButton);
 
 }
@@ -103,6 +107,7 @@ function displayCategory(categoryTitleValue, arrayOfItems) {
     arrayOfItems.forEach( i => {
         displayTask(listContainer, i.title, i.dueDate)
     })
+    displayAddTaskButton();
     
 }
 
