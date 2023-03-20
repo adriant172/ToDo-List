@@ -1,7 +1,7 @@
 import { generateMainLayout, displayCategory, displayCategoryList } from "./main-page";
 import { taskItem, category} from "./to-do's";
 import { getAllCategories, toDoDataHandler } from "./handlers";
-import { addTaskButtonListener , addCategoryButtonListener, cancelButtonListener, categorySelectListeners, taskItemsListeners, updateTaskButtonListener, deleteTaskButtonListener} from "./buttons"
+import { addTaskButtonListener , addCategoryButton, cancelButtonListener, categorySelectListeners, taskItemsListeners, updateTaskButtonListener, deleteTaskButtonListener} from "./buttons"
 
 
 import { format } from "date-fns";
@@ -14,6 +14,7 @@ let categoriesData;
 
 const content = document.querySelector('#content');
 const addCategoryForm = document.querySelector('#category-form');
+const addTaskForm = document.querySelector('#new-task-form');
 generateMainLayout(content);
 
 
@@ -41,11 +42,13 @@ displayCategoryList(categories)
 displayCategory(currentCategory.title, currentCategory.taskItems);
 
 addCategoryForm.onsubmit = () => {
-    addCategoryButtonListener();
+    addCategoryButton();
+}
+addTaskForm.onsubmit = () => {
+    addTaskButtonListener(currentCategory);
 }
 
 
-addTaskButtonListener(currentCategory);
 
 cancelButtonListener();
 categorySelectListeners(categories);

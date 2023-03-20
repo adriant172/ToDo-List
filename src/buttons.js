@@ -6,21 +6,32 @@ import { displayCategory, displayCategoryList } from "./main-page";
 
 function addTaskButtonListener(selectedCategory) {
     const addTaskButton = document.querySelector('.add-task-button');
-    const addItemForm = document.querySelector('#task-form');
+    const addItemForm = document.querySelector('#new-task-form');
     const taskOverlay = document.querySelector('#task-overlay');
     const newCurrentCategory = selectedCategory;
     
-    addTaskButton.addEventListener('click', () => {
-        const newTaskData = taskDataHandler();
-        const task = new taskItem(newTaskData.title, newTaskData.description, newTaskData.date);
+    const newTaskData = taskDataHandler();
+    const task = new taskItem(newTaskData.title, newTaskData.description, newTaskData.date);
         
-        setTaskToCategory(newCurrentCategory.title, task)
-        setCurrentCategory(newCurrentCategory.title);
+    setTaskToCategory(newCurrentCategory.title, task)
+    setCurrentCategory(newCurrentCategory.title);
 
-        addItemForm.reset();
-        location.reload();
-        taskOverlay.style.display = "";
-    })
+    addItemForm.reset();
+    location.reload();
+    taskOverlay.style.display = "";
+
+
+    // addTaskButton.addEventListener('click', () => {
+    //     const newTaskData = taskDataHandler();
+    //     const task = new taskItem(newTaskData.title, newTaskData.description, newTaskData.date);
+        
+    //     setTaskToCategory(newCurrentCategory.title, task)
+    //     setCurrentCategory(newCurrentCategory.title);
+
+    //     addItemForm.reset();
+    //     location.reload();
+    //     taskOverlay.style.display = "";
+    // })
 }
 
 function updateTaskButtonListener(selectedCategory) {
@@ -57,8 +68,7 @@ function deleteTaskButtonListener(selectedCategory) {
     })
 }
 
-function addCategoryButtonListener() {
-    const addCategoryButton = document.querySelector('.add-category-button')
+function addCategoryButton() {
     const categoryForm = document.querySelector('#category-form');
     const categoryOverlay = document.querySelector('#category-overlay');
     const newCategory = newCategoryDataHandler();
@@ -67,17 +77,6 @@ function addCategoryButtonListener() {
         location.reload();
         categoryOverlay.style.display = "";
         
-    // addCategoryButton.addEventListener('click', () => {
-    //     const newCategory = newCategoryDataHandler();
-    //     // const categoryObj = new category(newCategory.title);
-    //     setCategory(newCategory.title);
-    //     // categoriesObject[newCategory.title] = categoryObj;
-    //     categoryForm.reset();
-    //     location.reload();
-    //     // displayCategoryList(categoriesObject);
-    //     // categorySelectListeners(categoriesObject, categoriesObject[newCategory.title]);
-    //     categoryOverlay.style.display = "";
-    // })
 }
 
 function cancelButtonListener(){
@@ -153,4 +152,4 @@ function taskItemsListeners(){
 
 
 
-export { addTaskButtonListener , addCategoryButtonListener, cancelButtonListener, categorySelectListeners, taskItemsListeners, updateTaskButtonListener, deleteTaskButtonListener}
+export { addTaskButtonListener , addCategoryButton, cancelButtonListener, categorySelectListeners, taskItemsListeners, updateTaskButtonListener, deleteTaskButtonListener}
