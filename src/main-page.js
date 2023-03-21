@@ -21,6 +21,9 @@ function generateMainLayout(contentElement) {
     const categoryContainer = document.createElement('div');
     const categoryTitle = document.createElement('h3');
     const listContainer = document.createElement('ul');
+    
+
+
     categoryContainer.classList.add('category-container');
     categoryTitle.classList.add('category-title');
     listContainer.classList.add('list-container');
@@ -80,23 +83,27 @@ function displayAddTaskButton() {
 function displayAddCategoryButton() {
     const categoriesView = document.querySelector('.categories');
     const addCategoryButton = document.createElement('button');
-
+    const plusImg = document.createElement('img');
     
     addCategoryButton.type = "button"
     addCategoryButton.classList.add('newCategoryButton');
-    addCategoryButton.textContent = "New Category";
+    
 
     addCategoryButton.addEventListener('click', () => {
         const overlay = document.querySelector('#category-overlay');
         overlay.style.display = "flex";
     });
+    plusImg.src = "/src/images/plus.svg";
+    plusImg.alt = "Add task icon"
+    plusImg.classList.add('icons');
+    addCategoryButton.appendChild(plusImg);
     categoriesView.appendChild(addCategoryButton);
 
 }
+
 function displayCategory(categoryTitleValue, arrayOfItems) {
     const listContainer = document.querySelector('.list-container');
-    const categoryContainer = document.querySelector('.category-container');
-    const categoryTitle = document.querySelector('.category-title')
+    const categoryTitle = document.querySelector('.category-title');
     while (listContainer.firstChild) {
         listContainer.removeChild(listContainer.firstChild);
     }

@@ -163,7 +163,7 @@ button {
     width: 30px;
     height: 30px;
 }
-.cancel-button, .edit-task-button, .delete-task-button, .newTaskButton {
+.cancel-button, .edit-task-button, .delete-task-button, .newTaskButton, .newCategoryButton{
     border: none;
     background:inherit;
     
@@ -219,4 +219,10 @@ textarea {
 .category-name:hover {
     border-radius:15px;
     background-color: whitesmoke;
+}
+#priority > option {
+    display: flex;
+    justify-content: space-evenly;
+    height: .5rem;
+    width: .5rem;
 }
