@@ -80,7 +80,7 @@ function addCategoryButton() {
 }
 
 function cancelButtonListener(){
-    const cancelButtons = document.querySelectorAll('.cancel-button');
+    const cancelButtons = document.querySelectorAll('.cancel-button, .modal-cancel-button');
     const forms = document.querySelectorAll('form');
     const overlays = document.querySelectorAll('.overlay');
     cancelButtons.forEach( button => {

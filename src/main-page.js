@@ -42,7 +42,7 @@ function generateMainLayout(contentElement) {
 
 
 
-function displayTask(listContainer, title, date){
+function displayTask(listContainer, title, date, priority){
     const taskContainer = document.createElement('li');
     const titleElement = document.createElement('div');
     const dateElement = document.createElement('div')
@@ -55,6 +55,13 @@ function displayTask(listContainer, title, date){
         taskContainer.appendChild(e)
     })
     taskContainer.classList.add("task-item");
+    if (priority == "P1")  {
+        taskContainer.classList.add("P1")
+    } else if (priority == "P2") {
+        taskContainer.classList.add("P2")
+    } else if (priority == "P3") {
+        taskContainer.classList.add("P3")
+    }
     listContainer.appendChild(taskContainer);
 
 }
@@ -112,7 +119,7 @@ function displayCategory(categoryTitleValue, arrayOfItems) {
 
     
     arrayOfItems.forEach( i => {
-        displayTask(listContainer, i.title, i.dueDate)
+        displayTask(listContainer, i.title, i.dueDate, i.priority)
     })
     displayAddTaskButton();
     

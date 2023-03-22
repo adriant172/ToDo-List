@@ -112,8 +112,8 @@ header {
     background-color: whitesmoke;
     margin: auto;
     padding: 1.5em;
-    width: 30vw;
-    height: 30vh;
+    width: 40vw;
+    height: 40vh;
     font-size: 1.5rem;
     border: 2px black solid;
 }
@@ -166,7 +166,9 @@ button {
 .cancel-button, .edit-task-button, .delete-task-button, .newTaskButton, .newCategoryButton{
     border: none;
     background:inherit;
-    
+}
+.add-task-button {
+    background-color: #3777FF;
 }
 #edit-task-header {
     grid-row: 1 / 2;
@@ -177,6 +179,11 @@ button {
     margin-bottom: 10px;
     border-bottom: solid 2px grey;
 
+}
+.buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 #edit-task-main-content {
     grid-row: 2 / 11;
@@ -209,6 +216,10 @@ label {
 textarea {
     resize: none;
 }
+#newTaskDescription {
+    height: 40%;
+    width: 80%
+}
 .taskTitle {
     min-height: 10%;
 }
@@ -226,3 +237,13 @@ textarea {
     height: .5rem;
     width: .5rem;
 }
+.P1 {
+    background-color: rgba(255, 70, 70, .5);
+}
+.P2 {
+    background-color: rgba(255, 252, 96, .5);
+}
+.P3 {
+    background-color: rgba(28, 119, 195, .5);
+}
+
