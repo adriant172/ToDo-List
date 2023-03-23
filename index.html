@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="content">
+    </div>
+    <div id="category-overlay" class="overlay">
+        <div class="item-container">
+            <form id="category-form" >
+                <div class="form-entry">
+                    <input type="text" name="categoryTitle" id="newCategoryTitle" placeholder="Enter Category Name" required>
+                </div>
+                <button class="add-category-button" type="submit">Add Category</button>
+                <button class="modal-cancel-button">Cancel</button>          
+            </form>
+        </div>
+        
+    </div>
+    <div id="add-task-overlay" class="overlay">
+        <form id="new-task-form">
+            <div class="item-container">
+                <input class="form-entry" type="text" required name="TaskTitle" id="newTaskTitle" class="taskTitle" placeholder="Enter Task Name">
+                <textarea class="form-entry" type="text"  required name="taskDescription" id="newTaskDescription" class="taskTitle" placeholder="Description"></textarea>
+                    <!-- <input type="text"  required name="taskDescription" id="taskDescription" placeholder="Description"> -->
+                <div class="form-entry">
+                    <input type="date" name="taskDueDate" id="taskDueDate">
+                </div>
+                <div class="buttons">
+                    <button class="add-task-button" type="submit">Add task</button>
+                    <button class="modal-cancel-button" type="button">Cancel</button>
+                </div>
+                
+        </div>
+
+        </form>
+        
+    </div>
+    <div id="view-task-overlay" class="overlay">
+        <form id="edit-task-form">
+            <div class="view-task-container">
+                <div id="edit-task-header">
+                    <h3 class="category-title" id="category-title">PlaceHolder</h3>
+                    <!-- <img class="icon-button cancel-button" type="button" src="/src/images/cancel.svg" alt=""> -->
+                    <button class="cancel-button" type="button">
+                        <img class="icons" src="/src/images/cancel.svg" alt="">
+                    </button>
+                </div>
+                <div id="edit-task-main-content">
+                    <label for="taskTitle"></label>
+                    <input class="form-entry taskTitle" id="edit-taskTitle" type="text" required name="taskTitle">
+
+                    <label for="taskDescription">Description</label>
+                    <textarea class="form-entry taskDescription" id="edit-taskDescription" type="text"  required name="taskDescription"></textarea>
+
+                    <label for="taskNotes">Comments</label>
+                    <textarea class="form-entry taskNotes" id="edit-taskNotes" type="text"  required name="taskNotes"></textarea>
+
+                </div>
+                
+                <div id="edit-task-sidebar">
+                    <label  for="taskStatus">Status</label>
+                    <select name="taskStatus" id="taskStatus">
+                        <option value="To Do">To Do</option>
+                        <option value="Doing">Doing</option>
+                        <option value="Done">Done</option>
+                    </select>
+                    <label for="priority">Priority</label>
+                    <select name="priority" id="priority">
+                        <option value="P1">🔴 P1</option>
+                        <option value="P2">🟡 P2</option>
+                        <option value="P3">🔵 P3</option>
+                        <option value="P4">⚪ P4</option>
+                    </select>
+                    <label for="taskDueDate"></label>
+                    <input type="date" name="taskDueDate" id="dueDate">
+                </div>
+                <button class="edit-task-button" type="button">
+                    <img class="icons" src="/src/images/save.svg" alt="save button">
+                </button>
+                <button class="delete-task-button" type="button">
+                    <img class="icons" src="/src/images/delete.svg" alt="delete button">
+                </button>
+                
+        </div>
+
+        </form>
+                      
+    </div>
+    
+</body>
+<script src="main.js"></script>
+
+</html>
